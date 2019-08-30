@@ -1,0 +1,12 @@
+dist: bionic
+language: python
+python:
+  - '3.5'
+  - '3.6'
+  - '3.7'
+
+install:
+  - travis_retry pip install -r requirements-dev.txt
+script:
+  - travis_retry python setup.py test
+
