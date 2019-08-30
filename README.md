@@ -1,4 +1,5 @@
-## ecode-py
+# ecode-py
+[![Build Status](https://travis-ci.com/emoji-gen/ecode-py.svg?branch=master)](https://travis-ci.com/emoji-gen/ecode-py)
 
 :musical_score: The emoji code utilities for Python
 
