@@ -5,12 +5,12 @@ import base64
 
 V1_HEADER_LENGTH = 12
 LOCALE_NAME_TO_LOCALE_ID = {
-  'ja': 0,
-  'kr': 1,
-  'zh-hant': 2,
-  'zh-hans': 3,
-  'en': 4,
-  }
+    'ja': 0,
+    'kr': 1,
+    'zh-hant': 2,
+    'zh-hans': 3,
+    'en': 4,
+}
 
 
 class EcodeEncoder():
