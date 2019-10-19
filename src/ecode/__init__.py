@@ -1,5 +1,9 @@
 # -*- encoding: utf-8 -*-
 
+from .ecode import (
+    EcodeV1,
+    EcodeLocale,
+)
 from .ecode_encoder import EcodeEncoder
 from .ecode_decoder import EcodeDecoder
 
