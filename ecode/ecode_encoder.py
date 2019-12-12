@@ -2,10 +2,14 @@
 
 import base64
 
+from .ecode import EcodeV1
 
 V1_HEADER_LENGTH = 12
-class EcodeEncoder():
-    def encode(self, ecode):
+
+
+class EcodeEncoder:
+    @staticmethod
+    def encode(ecode: EcodeV1):
         encoded_text = ecode.text.encode('utf-8')
         buff = bytearray(V1_HEADER_LENGTH + len(encoded_text))
 
