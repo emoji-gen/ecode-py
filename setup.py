@@ -2,10 +2,10 @@
 
 import re
 
-from setuptools import find_packages, setup
+from setuptools import setup
 
 
-with open('src/ecode/__init__.py', encoding='utf8') as f:
+with open('ecode/__init__.py', encoding='utf8') as f:
     version = re.search(r'__version__ = \'(.*?)\'', f.read()).group(1)
 
 
@@ -27,11 +27,12 @@ setup(
         'License :: OSI Approved :: MIT License',
         'Operating System :: OS Independent',
         'Programming Language :: Python :: 3 :: Only',
+        'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: 3.7',
+        'Programming Language :: Python :: 3.8',
     ],
-    packages=find_packages('src'),
-    package_dir={'': 'src'},
+    packages=['ecode'],
     include_package_data=True,
     setup_requires=['pytest-runner'],
     tests_require=['pytest']
