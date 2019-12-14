@@ -64,13 +64,22 @@ class EcodeSize(IntEnum):
         return cls[name.upper()]
 
 
+class EcodeFmt(IntEnum):
+    PNG = 0
+    WEBP = 1
+
+
 class EcodeV1:
     def __init__(self, *,
-                 text: str,
                  locale: EcodeLocale = EcodeLocale.JA,
                  flags: AbstractSet[EcodeFlag] = frozenset(),
                  align: EcodeAlign = EcodeAlign.CENTER,
-                 size: EcodeSize = EcodeSize.MDPI):
+                 size: EcodeSize = EcodeSize.MDPI,
+                 fmt: EcodeFmt = EcodeFmt.PNG,
+                 font_id: int = 0,
+                 foreground_color: int = 0x000000FF,
+                 background_color: int = 0xFFFFFFFF,
+                 text: str):
         if not text:
             raise ValueError('empty string is not allowed')
 
@@ -80,8 +89,15 @@ class EcodeV1:
         if not isinstance(flags, Set):
             raise ValueError('`flags` must be an instance of `Set`, but it is ' + repr(flags))
 
-        self.text = text
+        if not isinstance(align, EcodeAlign):
+            raise ValueError('`align` must be an instance of `EcodeAlign`, but it is ' + repr(align))
+
         self.locale = locale
         self.flags = flags
         self.align = align
         self.size = size
+        self.fmt = fmt
+        self.font_id = font_id
+        self.foreground_color = foreground_color
+        self.background_color = background_color
+        self.text = text
