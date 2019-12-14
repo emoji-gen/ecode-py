@@ -8,4 +8,5 @@ install:
   - travis_retry pip install -r requirements-dev.txt
 script:
   - travis_retry python setup.py test
+  - mypy -p ecode
 
