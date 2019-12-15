@@ -86,6 +86,11 @@ class EcodeV1:
         if not isinstance(flags, Set):
             raise ValueError('`flags` must be an instance of `Set`, but it is ' + repr(flags))
 
+        for flag in flags:
+            if not isinstance(flag, EcodeFlag):
+                raise ValueError('`flags` must include instances of `EcodeFlag` only, ' +
+                                 'but {} is contained'.format(repr(flag)))
+
         if not isinstance(align, EcodeAlign):
             raise ValueError('`align` must be an instance of `EcodeAlign`, but it is ' + repr(align))
 
