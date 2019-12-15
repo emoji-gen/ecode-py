@@ -5,7 +5,7 @@
 
 ## Requirements
 
-TODO
+- Python 3.5 or later
 
 ## Ported projects
 
