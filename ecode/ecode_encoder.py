@@ -15,8 +15,8 @@ class EcodeEncoder:
         buff = bytearray(cls.V1_HEADER_LENGTH + len(encoded_text))
 
         buff[0] |= ecode.locale.value & 0x0f
-        buff[1] |= cls._encode_flags_v1(ecode.flags) << 2 & 0b1111_1100
-        buff[1] |= ecode.align.value & 0x0000_0011
+        buff[1] |= cls._encode_flags_v1(ecode.flags) << 2 & 0b11111100
+        buff[1] |= ecode.align.value & 0x00000011
         buff[2] |= ecode.size.value << 4 & 0xf0
         buff[2] |= ecode.fmt.value & 0x0f
         buff[3] |= ecode.font_id & 0xff

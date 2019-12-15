@@ -37,8 +37,14 @@ def test_ecode_illegal_fmt():
 
 def test_ecode_illegal_foreground_color():
     with pytest.raises(ValueError,
-                       match='`foreground_color` must be bellow 0xFFFFFFFF, but it is ' + repr(0xFFFFFFFF + 1)):
+                       match='`foreground_color` must be between 0 and 0xFFFFFFFF, but it is ' + repr(0xFFFFFFFF + 1)):
         EcodeV1(text='ab\nc', foreground_color=0xFFFFFFFF + 1)
+
+
+def test_ecode_illegal_background_color():
+    with pytest.raises(ValueError,
+                       match='`background_color` must be between 0 and 0xFFFFFFFF, but it is ' + repr(0xFFFFFFFF + 1)):
+        EcodeV1(text='ab\nc', background_color=0xFFFFFFFF + 1)
 
 
 def test_encode_empty_text():
