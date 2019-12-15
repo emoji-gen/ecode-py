@@ -5,14 +5,14 @@ from typing import AbstractSet
 
 from .ecode import EcodeV1, EcodeFlag
 
-V1_HEADER_LENGTH = 12
-
 
 class EcodeEncoder:
+    V1_HEADER_LENGTH = 12
+
     @classmethod
     def encode_v1(cls, ecode: EcodeV1):
         encoded_text = ecode.text.encode('utf-8')
-        buff = bytearray(V1_HEADER_LENGTH + len(encoded_text))
+        buff = bytearray(cls.V1_HEADER_LENGTH + len(encoded_text))
 
         buff[0] |= ecode.locale.value & 0x0f
         buff[1] |= cls._encode_flags_v1(ecode.flags) << 2 & 0b1111_1100
@@ -30,8 +30,8 @@ class EcodeEncoder:
         buff[11] |= ecode.background_color & 0xff
 
         text_bytes = ecode.text.encode('utf-8')
-        for c in enumerate text_bytes:
-            print(c)
+        for (i, c) in enumerate(text_bytes):
+            buff[cls.V1_HEADER_LENGTH + i] = c & 0xff
 
         return base64.urlsafe_b64encode(buff)
 

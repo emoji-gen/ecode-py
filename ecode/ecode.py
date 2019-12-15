@@ -80,9 +80,6 @@ class EcodeV1:
                  foreground_color: int = 0x000000FF,
                  background_color: int = 0xFFFFFFFF,
                  text: str):
-        if not text:
-            raise ValueError('empty string is not allowed')
-
         if not isinstance(locale, EcodeLocale):
             raise ValueError('`locale` must be an instance of `EcodeLocale`, but it is ' + repr(locale))
 
@@ -91,6 +88,15 @@ class EcodeV1:
 
         if not isinstance(align, EcodeAlign):
             raise ValueError('`align` must be an instance of `EcodeAlign`, but it is ' + repr(align))
+
+        if not isinstance(size, EcodeSize):
+            raise ValueError('`size` must be an instance of `EcodeSize`, but it is ' + repr(size))
+
+        if not isinstance(fmt, EcodeFmt):
+            raise ValueError('`fmt` must be an instance of `EcodeFmt`, but it is ' + repr(fmt))
+
+        if not text:
+            raise ValueError('empty string is not allowed')
 
         self.locale = locale
         self.flags = flags

@@ -2,8 +2,6 @@
 
 import base64
 
-import pytest
-
 from ecode import (
     EcodeAlign,
     EcodeFlag,
@@ -17,7 +15,6 @@ from ecode import (
 
 def test_encode():
     ecode = EcodeV1(
-        text='ab\nc',
         locale=EcodeLocale.EN,
         flags=frozenset([EcodeFlag.SIZE_FIXED, EcodeFlag.STRETCH]),
         align=EcodeAlign.CENTER,
@@ -25,7 +22,8 @@ def test_encode():
         fmt=EcodeFmt.WEBP,
         font_id=0b1100_1111,
         foreground_color=0x12345678,
-        background_color=0x9abcdef0
+        background_color=0x9abcdef0,
+        text='ab\nc'
     )
     code = EcodeEncoder.encode_v1(ecode)
 
@@ -49,9 +47,3 @@ def test_encode():
         0x63,  # Text:8
     ])
     assert actual == expected
-
-
-# noinspection PyTypeChecker
-def test_encode_illegal_locale():
-    with pytest.raises(ValueError, match='`locale` must be an instance of `EcodeLocale`, but it is \'xxx\''):
-        EcodeV1(text='ab\nc.', locale='xxx')
