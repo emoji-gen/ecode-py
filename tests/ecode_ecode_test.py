@@ -31,8 +31,14 @@ def test_ecode_illegal_size():
 
 # noinspection PyTypeChecker
 def test_ecode_illegal_fmt():
-    with pytest.raises(ValueError, match='`fmt` must be an instance of `EcodeFormat`, but it is \'fmt\''):
+    with pytest.raises(ValueError, match='`fmt` must be an instance of `EcodeFmt`, but it is \'fmt\''):
         EcodeV1(text='ab\nc', fmt='fmt')
+
+
+def test_ecode_illegal_foreground_color():
+    with pytest.raises(ValueError,
+                       match='`foreground_color` must be bellow 0xFFFFFFFF, but it is ' + repr(0xFFFFFFFF + 1)):
+        EcodeV1(text='ab\nc', foreground_color=0xFFFFFFFF + 1)
 
 
 def test_encode_empty_text():

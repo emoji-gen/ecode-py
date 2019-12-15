@@ -95,6 +95,9 @@ class EcodeV1:
         if not isinstance(fmt, EcodeFmt):
             raise ValueError('`fmt` must be an instance of `EcodeFmt`, but it is ' + repr(fmt))
 
+        if foreground_color > 0xFFFFFFFF:
+            raise ValueError('`foreground_color` must be bellow 0xFFFFFFFF, but it is ' + repr(foreground_color))
+
         if not text:
             raise ValueError('empty string is not allowed')
 
