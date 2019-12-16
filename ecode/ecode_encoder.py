@@ -7,12 +7,10 @@ from .ecode import EcodeV1, EcodeFlag
 
 
 class EcodeEncoder:
-    V1_HEADER_LENGTH = 12
-
     @classmethod
     def encode_v1(cls, ecode: EcodeV1):
         encoded_text = ecode.text.encode('utf-8')
-        buff = bytearray(cls.V1_HEADER_LENGTH + len(encoded_text))
+        buff = bytearray(EcodeV1.HEADER_LENGTH + len(encoded_text))
 
         buff[0] |= ecode.locale.value & 0x0f
         buff[1] |= cls._encode_flags_v1(ecode.flags) << 2 & 0b11111100
@@ -31,9 +29,11 @@ class EcodeEncoder:
 
         text_bytes = ecode.text.encode('utf-8')
         for (i, c) in enumerate(text_bytes):
-            buff[cls.V1_HEADER_LENGTH + i] = c & 0xff
+            buff[EcodeV1.HEADER_LENGTH + i] = c & 0xff
 
-        return base64.urlsafe_b64encode(buff)
+        return base64.urlsafe_b64encode(buff) \
+            .decode('utf-8') \
+            .replace('=', '')
 
     @classmethod
     def _encode_flags_v1(cls, flags: AbstractSet[EcodeFlag]):

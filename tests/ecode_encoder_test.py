@@ -26,8 +26,9 @@ def test_encode():
         text='ab\nc'
     )
     code = EcodeEncoder.encode_v1(ecode)
+    print('ecode=' + code)  # 'BA0hzxI0VniavN7wYWIKYw'
 
-    actual = base64.urlsafe_b64decode(code)
+    actual = base64.urlsafe_b64decode(code + '=' * (len(code) % 4))
     expected = bytes([
         0b00000100,  # Version:4, Locale:4
         0b00001101,  # Flags:6, Align:2

@@ -32,6 +32,10 @@ class EcodeFlag(IntEnum):
     def from_name(cls, code: str):
         return cls[code.upper()]
 
+    @property
+    def mask(self) -> int:
+        return 1 << self.value
+
 
 @enum.unique
 class EcodeAlign(IntEnum):
@@ -46,18 +50,10 @@ class EcodeAlign(IntEnum):
 
 @enum.unique
 class EcodeSize(IntEnum):
-    MDPI = (0, 128, 128)
-    HDPI = (1, 192, 192)
-    XHDPI = (2, 256, 256)
-    XXHDPI = (3, 384, 384)
-
-    # noinspection PyInitNewSignature
-    def __new__(cls, value, width, height):
-        obj = int.__new__(cls)
-        obj._value_ = value
-        obj.width = width
-        obj.height = height
-        return obj
+    MDPI = 0
+    HDPI = 1
+    XHDPI = 2
+    XXHDPI = 3
 
     @classmethod
     def from_name(cls, name: str):
@@ -70,6 +66,8 @@ class EcodeFmt(IntEnum):
 
 
 class EcodeV1:
+    HEADER_LENGTH = 12
+
     def __init__(self, *,
                  locale: EcodeLocale = EcodeLocale.JA,
                  flags: AbstractSet[EcodeFlag] = frozenset(),
@@ -81,7 +79,7 @@ class EcodeV1:
                  background_color: int = 0xFFFFFFFF,
                  text: str):
         if not isinstance(locale, EcodeLocale):
-            raise ValueError('`locale` must be an instance of `EcodeLocale`, but it is ' + repr(locale))
+            raise ValueError('`locale` must be an instance of `EcodeLocale`, but it is {!r}'.format(locale))
 
         if not isinstance(flags, Set):
             raise ValueError('`flags` must be an instance of `Set`, but it is ' + repr(flags))
@@ -118,3 +116,7 @@ class EcodeV1:
         self.foreground_color = foreground_color
         self.background_color = background_color
         self.text = text
+
+    @property
+    def version(self):
+        return 1
