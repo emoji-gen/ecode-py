@@ -18,6 +18,13 @@ def test_ecode_illegal_flags():
 
 
 # noinspection PyTypeChecker
+def test_ecode_illegal_flag_contents():
+    with pytest.raises(ValueError,
+                       match='`flags` must include instances of `EcodeFlag` only, but \'flag\' is contained'):
+        EcodeV1(text='ab\nc', flags=frozenset(['flag']))
+
+
+# noinspection PyTypeChecker
 def test_ecode_illegal_align():
     with pytest.raises(ValueError, match='`align` must be an instance of `EcodeAlign`, but it is \'align\''):
         EcodeV1(text='ab\nc', align='align')
