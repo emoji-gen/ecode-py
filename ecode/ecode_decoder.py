@@ -39,10 +39,7 @@ class EcodeDecoder:
     @classmethod
     def _decode_locale(cls, byte0: int) -> EcodeLocale:
         locale_id = byte0 & 0x0f
-        locale = EcodeLocale(locale_id)
-        if not locale:
-            raise ValueError('Illegal locale ID {!r}.'.format(locale_id))
-        return locale
+        return EcodeLocale(locale_id)
 
     @classmethod
     def _decode_flags(cls, byte1: int) -> FrozenSet[EcodeFlag]:
