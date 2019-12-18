@@ -13,8 +13,35 @@
 $ pip install ecode
 ```
 
+## Usage
+### Encoding
+
 ```python
-TODO
+from ecode import *
+
+ecode = Ecode(
+    locale=EcodeLocale.EN,
+    flags=frozenset(EcodeFlag.SIZE_FIXED, EcodeFlag.STRETCH),
+    align=EcodeAlign.CENTER,
+    size=EcodeSize.XHDPI,
+    format=EcodeFmt.WEBP,
+    font_id=0xcf,
+    foreground_color=0x12345678,
+    background_color=0x9abcdef0,
+    text='ab\nc')
+
+
+code = EcodeEncoder.encode(ecode)
+print(code) # => 'BA0hzxI0VniavN7wYWIKYw'
+```
+
+### Decoding
+
+```python
+from ecode import EcodeDecoder
+
+ecode = EcodeDecoder.decode('BA0hzxI0VniavN7wYWIKYw')
+print(ecode.text) # => 'ab\nc'
 ```
 
 ## Development
