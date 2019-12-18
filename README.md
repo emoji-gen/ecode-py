@@ -35,7 +35,7 @@ ecode = Ecode(
 
 
 code = EcodeEncoder.encode(ecode)
-print(code) # => 'BA0hzxI0VniavN7wYWIKYw'
+print(code) #=> 'BA0hzxI0VniavN7wYWIKYw'
 ```
 
 ### Decoding
@@ -44,7 +44,7 @@ print(code) # => 'BA0hzxI0VniavN7wYWIKYw'
 from ecode import EcodeDecoder
 
 ecode = EcodeDecoder.decode('BA0hzxI0VniavN7wYWIKYw')
-print(ecode.text) # => 'ab\nc'
+print(ecode.text) #=> 'ab\nc'
 ```
 
 ## Development
