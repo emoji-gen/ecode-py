@@ -15,7 +15,7 @@ class EcodeLocale(IntEnum):
     EN = 4
 
     @classmethod
-    def from_code(cls, code: str):
+    def from_code(cls, code: str) -> 'EcodeLocale':
         upper_code = code.upper()
         if upper_code == 'ZH':
             return cls.ZH_HANS
@@ -29,7 +29,7 @@ class EcodeFlag(IntEnum):
     STRETCH = 1
 
     @classmethod
-    def from_name(cls, code: str):
+    def from_name(cls, code: str) -> 'EcodeFlag':
         return cls[code.upper()]
 
     @property
@@ -44,7 +44,7 @@ class EcodeAlign(IntEnum):
     RIGHT = 2
 
     @classmethod
-    def from_name(cls, name: str):
+    def from_name(cls, name: str) -> 'EcodeAlign':
         return cls[name.upper()]
 
 
@@ -56,13 +56,17 @@ class EcodeSize(IntEnum):
     XXHDPI = 3
 
     @classmethod
-    def from_name(cls, name: str):
+    def from_name(cls, name: str) -> 'EcodeSize':
         return cls[name.upper()]
 
 
 class EcodeFmt(IntEnum):
     PNG = 0
     WEBP = 1
+
+    @classmethod
+    def from_code(cls, code: str) -> 'EcodeFmt':
+        return cls[code.upper()]
 
 
 class Ecode:
