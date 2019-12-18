@@ -47,7 +47,7 @@ print(ecode.text) # => 'ab\nc'
 ```
 
 ## Development
-### Requirements
+### Install requirements
 
 ```shell script
 $ python -m venv venv
@@ -55,9 +55,16 @@ $ . venv/bin/activate
 $ pip install -r requirements-dev.txt
 ```
 
+### Upgrade requirements
+
+```shell script
+$ ./scripts/upgrade_requirements-dev.sh
+```
+
 ### Test
 
 ```shell script
+$ . venv/bin/activate
 $ pytest
 ```
 
