@@ -6,10 +6,10 @@ python:
   - '3.8'
 
 install:
-  - travis_retry -- pip install -r requirements-dev.txt
+  - travis_retry pip install -r requirements-dev.txt
 script:
   - mypy -p ecode
-  - travis_retry -- pytest
-  - travis_retry -- bash <(curl -s https://codecov.io/bash)
+  - travis_retry pytest
+  - travis_retry bash <(curl -s https://codecov.io/bash)
 
 
