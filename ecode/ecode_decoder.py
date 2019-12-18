@@ -51,19 +51,13 @@ class EcodeDecoder:
 
     @classmethod
     def _decode_align(cls, byte1: int) -> EcodeAlign:
-        align_id = byte1 & 0x0000_0011
-        align = EcodeAlign(align_id)
-        if not align:
-            raise ValueError('Illegal align ID {!r}'.format(align_id))
-        return align
+        align_id = byte1 & 0b0000_0011
+        return EcodeAlign(align_id)
 
     @classmethod
     def _decode_size(cls, byte2: int) -> EcodeSize:
         size_id = byte2 >> 4 & 0x0f
-        size = EcodeSize(size_id)
-        if not size:
-            raise ValueError('Illegal size ID {!r}'.format(size_id))
-        return size
+        return EcodeSize(size_id)
 
     @classmethod
     def _decode_fmt(cls, byte2: int) -> EcodeFmt:
