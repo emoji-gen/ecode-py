@@ -26,3 +26,11 @@ def test_from_code_zh_hant():
 
 def test_from_code_en():
     assert EcodeLocale.from_code('en') == EcodeLocale.EN
+
+
+def test_code():
+    assert EcodeLocale.JA.code == 'ja'
+    assert EcodeLocale.KO.code == 'ko'
+    assert EcodeLocale.ZH_HANS.code == 'zh-Hans'
+    assert EcodeLocale.ZH_HANT.code == 'zh-Hant'
+    assert EcodeLocale.EN.code == 'en'

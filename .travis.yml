@@ -9,7 +9,7 @@ install:
   - travis_retry pip install -r requirements-dev.txt
 script:
   - mypy -p ecode
-  - travis_retry pytest
+  - travis_retry pytest -v --cov=ecode
   - travis_retry bash <(curl -s https://codecov.io/bash)
 
 

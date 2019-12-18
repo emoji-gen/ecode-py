@@ -22,6 +22,14 @@ class EcodeLocale(IntEnum):
 
         return cls[upper_code.replace('-', '_')]
 
+    @property
+    def code(self):
+        if self == EcodeLocale.ZH_HANT:
+            return 'zh-Hant'
+        if self == EcodeLocale.ZH_HANS:
+            return 'zh-Hans'
+        return self.name.lower()
+
 
 @enum.unique
 class EcodeFlag(IntEnum):
