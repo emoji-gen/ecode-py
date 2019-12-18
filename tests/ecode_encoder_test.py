@@ -6,7 +6,7 @@ from ecode import (
     EcodeAlign,
     EcodeFlag,
     EcodeFmt,
-    EcodeV1,
+    Ecode,
     EcodeEncoder,
     EcodeLocale,
     EcodeSize,
@@ -14,7 +14,7 @@ from ecode import (
 
 
 def test_encode():
-    ecode = EcodeV1(
+    ecode = Ecode(
         locale=EcodeLocale.EN,
         flags=frozenset([EcodeFlag.SIZE_FIXED, EcodeFlag.STRETCH]),
         align=EcodeAlign.CENTER,

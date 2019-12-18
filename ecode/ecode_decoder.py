@@ -9,18 +9,18 @@ from .ecode import (
     EcodeFmt,
     EcodeLocale,
     EcodeSize,
-    EcodeV1,
+    Ecode,
 )
 
 
 class EcodeDecoder:
     @classmethod
-    def decode_v1(cls, code: str) -> EcodeV1:
+    def decode_v1(cls, code: str) -> Ecode:
         code_bytes: bytes = base64.urlsafe_b64decode(code + '=' * (len(code) % 4))
-        if len(code_bytes) <= EcodeV1.HEADER_LENGTH:
+        if len(code_bytes) <= Ecode.HEADER_LENGTH:
             raise ValueError('Illegal byte length {}.'.format(len(code_bytes)))
 
-        return EcodeV1(
+        return Ecode(
             locale=cls._decode_locale(code_bytes[0]),
             flags=cls._decode_flags(code_bytes[1]),
             align=cls._decode_align(code_bytes[1]),

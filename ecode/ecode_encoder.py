@@ -3,14 +3,14 @@
 import base64
 from typing import AbstractSet
 
-from .ecode import EcodeV1, EcodeFlag
+from .ecode import Ecode, EcodeFlag
 
 
 class EcodeEncoder:
     @classmethod
-    def encode_v1(cls, ecode: EcodeV1):
+    def encode_v1(cls, ecode: Ecode):
         encoded_text = ecode.text.encode('utf-8')
-        buff = bytearray(EcodeV1.HEADER_LENGTH + len(encoded_text))
+        buff = bytearray(Ecode.HEADER_LENGTH + len(encoded_text))
 
         buff[0] |= ecode.locale.value & 0x0f
         buff[1] |= cls._encode_flags_v1(ecode.flags) << 2 & 0b11111100
@@ -29,7 +29,7 @@ class EcodeEncoder:
 
         text_bytes = ecode.text.encode('utf-8')
         for (i, c) in enumerate(text_bytes):
-            buff[EcodeV1.HEADER_LENGTH + i] = c & 0xff
+            buff[Ecode.HEADER_LENGTH + i] = c & 0xff
 
         return base64.urlsafe_b64encode(buff) \
             .decode('utf-8') \

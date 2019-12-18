@@ -65,7 +65,7 @@ class EcodeFmt(IntEnum):
     WEBP = 1
 
 
-class EcodeV1:
+class Ecode:
     HEADER_LENGTH = 12
 
     def __init__(self, *,

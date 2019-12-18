@@ -4,7 +4,7 @@ from .ecode import (
     EcodeAlign,
     EcodeFlag,
     EcodeFmt,
-    EcodeV1,
+    Ecode,
     EcodeLocale,
     EcodeSize,
 )
