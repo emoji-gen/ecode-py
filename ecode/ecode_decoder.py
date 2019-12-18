@@ -29,7 +29,7 @@ class EcodeDecoder:
             font_id=code_bytes[3],
             foreground_color=cls._decode_color(code_bytes[4:8]),
             background_color=cls._decode_color(code_bytes[8:12]),
-            text='ab\nc'
+            text=cls._decode_text(code_bytes[12:])
         )
 
     @classmethod
@@ -73,5 +73,9 @@ class EcodeDecoder:
         return fmt
 
     @classmethod
-    def _decode_color(cls, color: bytes):
+    def _decode_color(cls, color: bytes) -> int:
         return color[0] << 24 | color[1] << 16 | color[2] << 8 | color[3]
+
+    @classmethod
+    def _decode_text(cls, text: bytes) -> str:
+        return text.decode('utf-8')
