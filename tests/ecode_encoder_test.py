@@ -20,7 +20,7 @@ def test_encode():
         align=EcodeAlign.CENTER,
         size=EcodeSize.XHDPI,
         fmt=EcodeFmt.WEBP,
-        font_id=0b11001111,
+        font_id=0b1100_1111,
         foreground_color=0x12345678,
         background_color=0x9abcdef0,
         text='ab\nc'
@@ -30,10 +30,10 @@ def test_encode():
 
     actual = base64.urlsafe_b64decode(code + '=' * (len(code) % 4))
     expected = bytes([
-        0b00000100,  # Version:4, Locale:4
-        0b00001101,  # Flags:6, Align:2
-        0b00100001,  # Size:4, Fmt:4
-        0b11001111,  # FontId:8
+        0b0000_0100,  # Version:4, Locale:4
+        0b0000_1101,  # Flags:6, Align:2
+        0b0010_0001,  # Size:4, Fmt:4
+        0b1100_1111,  # FontId:8
         0x12,  # ForegroundColor_R:8
         0x34,  # ForegroundColor_G:8
         0x56,  # ForegroundColor_B:8

@@ -18,7 +18,7 @@ def test_decode():
     assert ecode.align == EcodeAlign.CENTER
     assert ecode.size == EcodeSize.XHDPI
     assert ecode.fmt == EcodeFmt.WEBP
-    assert ecode.font_id == 0b11001111
+    assert ecode.font_id == 0b1100_1111
     assert ecode.foreground_color == 0x12345678
     assert ecode.background_color == 0x9abcdef0
     assert ecode.text == 'ab\nc'

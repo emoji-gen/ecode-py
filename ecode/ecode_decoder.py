@@ -48,13 +48,13 @@ class EcodeDecoder:
     def _decode_flags(cls, byte1: int) -> FrozenSet[EcodeFlag]:
         flags: List[EcodeFlag] = []
         for flag in EcodeFlag:
-            if (byte1 >> 2 & 0b00111111) & flag.mask:
+            if (byte1 >> 2 & 0b0011_1111) & flag.mask:
                 flags.append(flag)
         return frozenset(flags)
 
     @classmethod
     def _decode_align(cls, byte1: int) -> EcodeAlign:
-        align_id = byte1 & 0x00000011
+        align_id = byte1 & 0x0000_0011
         align = EcodeAlign(align_id)
         if not align:
             raise ValueError('Illegal align ID {!r}'.format(align_id))
