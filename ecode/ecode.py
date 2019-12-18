@@ -29,7 +29,7 @@ class EcodeFlag(IntEnum):
     STRETCH = 1
 
     @classmethod
-    def from_name(cls, code: str) -> 'EcodeFlag':
+    def from_code(cls, code: str) -> 'EcodeFlag':
         return cls[code.upper()]
 
     @property
@@ -44,8 +44,12 @@ class EcodeAlign(IntEnum):
     RIGHT = 2
 
     @classmethod
-    def from_name(cls, name: str) -> 'EcodeAlign':
-        return cls[name.upper()]
+    def from_code(cls, code: str) -> 'EcodeAlign':
+        return cls[code.upper()]
+
+    @property
+    def code(self) -> str:
+        return self.name.lower()
 
 
 @enum.unique
