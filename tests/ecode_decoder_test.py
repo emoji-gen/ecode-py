@@ -11,7 +11,7 @@ from ecode import (
 
 
 def test_decode():
-    ecode = EcodeDecoder.decode_v1('BA0hzxI0VniavN7wYWIKYw')
+    ecode = EcodeDecoder.decode('BA0hzxI0VniavN7wYWIKYw')
     assert ecode.version == 1
     assert ecode.locale == EcodeLocale.EN
     assert ecode.flags == frozenset([EcodeFlag.SIZE_FIXED, EcodeFlag.STRETCH])

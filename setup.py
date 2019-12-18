@@ -33,7 +33,7 @@ setup(
         'Programming Language :: Python :: 3.8',
     ],
     packages=['ecode'],
-    include_package_data=True,
+    include_package_data=False,
     setup_requires=['pytest-runner'],
     tests_require=['pytest']
 )

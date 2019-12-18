@@ -25,7 +25,7 @@ def test_encode():
         background_color=0x9abcdef0,
         text='ab\nc'
     )
-    code = EcodeEncoder.encode_v1(ecode)
+    code = EcodeEncoder.encode(ecode)
     print('ecode=' + code)  # 'BA0hzxI0VniavN7wYWIKYw'
 
     actual = base64.urlsafe_b64decode(code + '=' * (len(code) % 4))

@@ -15,8 +15,8 @@ from .ecode import (
 
 class EcodeDecoder:
     @classmethod
-    def decode_v1(cls, code: str) -> Ecode:
-        code_bytes: bytes = base64.urlsafe_b64decode(code + '=' * (len(code) % 4))
+    def decode(cls, code: str) -> Ecode:
+        code_bytes: bytes = base64.urlsafe_b64decode(cls._pad_base64(code))
         if len(code_bytes) <= Ecode.HEADER_LENGTH:
             raise ValueError('Illegal byte length {}.'.format(len(code_bytes)))
 
@@ -31,6 +31,10 @@ class EcodeDecoder:
             background_color=cls._decode_color(code_bytes[8:12]),
             text=cls._decode_text(code_bytes[12:])
         )
+
+    @classmethod
+    def _pad_base64(cls, s: str):
+        return s + '=' * (len(s) % 4)
 
     @classmethod
     def _decode_locale(cls, byte0: int) -> EcodeLocale:
