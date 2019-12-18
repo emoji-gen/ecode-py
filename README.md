@@ -59,7 +59,7 @@ $ pip install -r requirements-dev.txt
 ### Upgrade requirements
 
 ```shell script
-$ ./scripts/upgrade_requirements-dev.sh
+$ ./scripts/upgrade-requirements-dev.sh
 ```
 
 ### Test
@@ -71,7 +71,10 @@ $ pytest
 
 ### Publish
 
-TODO
+
+```shell script
+$ ./scripts/publish-pypi.sh
+```
 
 ## Ported projects
 
