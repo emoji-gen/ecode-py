@@ -62,10 +62,7 @@ class EcodeDecoder:
     @classmethod
     def _decode_fmt(cls, byte2: int) -> EcodeFmt:
         fmt_id = byte2 & 0x0f
-        fmt = EcodeFmt(fmt_id)
-        if not fmt:
-            raise ValueError('Illegal fmt ID {!r}'.format(fmt_id))
-        return fmt
+        return EcodeFmt(fmt_id)
 
     @classmethod
     def _decode_color(cls, color: bytes) -> int:
