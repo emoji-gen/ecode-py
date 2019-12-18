@@ -68,8 +68,12 @@ class EcodeSize(IntEnum):
     XXHDPI = 3
 
     @classmethod
-    def from_name(cls, name: str) -> 'EcodeSize':
-        return cls[name.upper()]
+    def from_code(cls, code: str) -> 'EcodeSize':
+        return cls[code.upper()]
+
+    @property
+    def code(self):
+        return self.name.lower()
 
 
 class EcodeFmt(IntEnum):
