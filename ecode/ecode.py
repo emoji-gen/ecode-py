@@ -118,5 +118,5 @@ class Ecode:
         self.text = text
 
     @property
-    def version(self):
+    def version(self) -> int:
         return 1
