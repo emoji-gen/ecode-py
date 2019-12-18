@@ -7,6 +7,35 @@
 
 - Python 3.5 or later
 
+## Getting started
+
+```shell script
+$ pip install ecode
+```
+
+```python
+TODO
+```
+
+## Development
+### Requirements
+
+```shell script
+$ python -m venv venv
+$ . venv/bin/activate
+$ pip install -r requirements-dev.txt
+```
+
+### Test
+
+```shell script
+$ pytest
+```
+
+### Publish
+
+TODO
+
 ## Ported projects
 
 |Name|Language|
