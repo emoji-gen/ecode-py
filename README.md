@@ -28,7 +28,8 @@ ecode = Ecode(
     font_id=0xcf,
     foreground_color=0x12345678,
     background_color=0x9abcdef0,
-    text='ab\nc')
+    text='ab\nc'
+)
 
 
 code = EcodeEncoder.encode(ecode)
