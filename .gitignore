@@ -21,3 +21,4 @@ venv-*/
 
 # twine
 dist/
+build/

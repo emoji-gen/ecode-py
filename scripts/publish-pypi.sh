@@ -14,11 +14,12 @@ python3 -m venv venv-publish
 . venv-publish/bin/activate
 
 pip install -r requirements-dev.txt
+pip install wheel
 
 rm -rf ecode.egg-info/
 rm -rf dist/
 
-python3 setup.py sdist
+python3 setup.py bdist_wheel
 twine upload --repository pypi dist/*
 
 rm -rf venv-publish
