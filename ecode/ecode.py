@@ -88,6 +88,10 @@ class EcodeFmt(IntEnum):
     def from_code(cls, code: str) -> 'EcodeFmt':
         return cls[code.upper()]
 
+    @property
+    def code(self) -> str:
+        return self.name.lower()
+
 
 class Ecode:
     HEADER_LENGTH = 12
