@@ -1,6 +1,6 @@
 mypy
 pytest
 pytest-cov
-pytest-pep8
+pytest-pycodestyle
 pytest-pythonpath
 twine
