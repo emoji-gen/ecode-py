@@ -18,6 +18,7 @@ pip install wheel
 
 rm -rf ecode.egg-info/
 rm -rf dist/
+rm -rf build/
 
 python3 setup.py bdist_wheel
 twine upload --repository pypi dist/*
