@@ -10,6 +10,11 @@ def test_from_code():
     assert EcodeFlag.from_code('STRETCH') == EcodeFlag.STRETCH
 
 
+def test_code():
+    assert EcodeFlag.SIZE_FIXED.code == 'size_fixed'
+    assert EcodeFlag.STRETCH.code == 'stretch'
+    
+
 def test_mask():
     assert EcodeFlag.SIZE_FIXED.mask == 0b0000_0001
     assert EcodeFlag.STRETCH.mask == 0b0000_0010

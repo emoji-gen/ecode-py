@@ -23,7 +23,7 @@ class EcodeLocale(IntEnum):
         return cls[upper_code.replace('-', '_')]
 
     @property
-    def code(self):
+    def code(self) -> str:
         if self == EcodeLocale.ZH_HANT:
             return 'zh-Hant'
         if self == EcodeLocale.ZH_HANS:
@@ -39,6 +39,10 @@ class EcodeFlag(IntEnum):
     @classmethod
     def from_code(cls, code: str) -> 'EcodeFlag':
         return cls[code.upper()]
+
+    @property
+    def code(self) -> str:
+        return self.name.lower()
 
     @property
     def mask(self) -> int:
