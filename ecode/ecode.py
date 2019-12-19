@@ -76,7 +76,7 @@ class EcodeSize(IntEnum):
         return cls[code.upper()]
 
     @property
-    def code(self):
+    def code(self) -> str:
         return self.name.lower()
 
 
