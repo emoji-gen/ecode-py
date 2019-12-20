@@ -2,6 +2,7 @@
 [![Build Status](https://travis-ci.com/emoji-gen/ecode-py.svg?branch=master)](https://travis-ci.com/emoji-gen/ecode-py)
 [![codecov](https://codecov.io/gh/emoji-gen/ecode-py/branch/master/graph/badge.svg)](https://codecov.io/gh/emoji-gen/ecode-py)
 [![Requirements Status](https://requires.io/github/emoji-gen/ecode-py/requirements.svg?branch=master)](https://requires.io/github/emoji-gen/ecode-py/requirements/?branch=master)
+[![PyPI version](https://badge.fury.io/py/ecode.svg)](https://badge.fury.io/py/ecode)
 
 :musical_score: The emoji code utilities for Python
 
