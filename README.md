@@ -6,13 +6,19 @@
 :musical_score: The emoji code utilities for Python
 
 ## Requirements
-
 - Python 3.6 or later
 
 ## Getting started
+### Pip
 
 ```shell script
 $ pip install ecode
+```
+
+### Poetry
+
+```shell script
+$ poetry add ecode
 ```
 
 ## Usage
