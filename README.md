@@ -76,7 +76,9 @@ $ poetry run pytest
 
 
 ```shell script
-$ ./scripts/publish-pypi.sh
+$ rm -rf dist/
+$ poetry build -f wheel
+$ poetry publish
 ```
 
 ## Ported projects
