@@ -4,6 +4,7 @@
 # virtualenv
 venv/
 venv-*/
+.venv/
 
 # pytest
 .eggs/
@@ -22,3 +23,6 @@ venv-*/
 # twine
 dist/
 build/
+
+# Poetry
+poetry.lock
