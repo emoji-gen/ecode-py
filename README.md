@@ -74,11 +74,10 @@ $ poetry run pytest
 
 ### Publish
 
-
 ```shell script
 $ rm -rf dist/
 $ poetry build -f wheel
-$ poetry publish
+$ poetry run twine upload --repository pypi dist/*
 ```
 
 ## Ported projects
