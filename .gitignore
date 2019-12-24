@@ -23,6 +23,3 @@ venv-*/
 # twine
 dist/
 build/
-
-# Poetry
-poetry.lock
