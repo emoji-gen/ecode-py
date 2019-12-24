@@ -3,9 +3,11 @@ name = "ecode"
 version = "0.1.1"
 description = ""
 license = "MIT"
-authors = ["Pine Mizune <pinemz@gmail.com>"]
+authors = ["Emoji Generator <ultimate.emoji.gen@gmail.com>"]
+maintainers = ["Pine Mizune <ultimate.emoji.gen@gmail.com>"]
 readme = "README.md"
 homepage = "https://github.com/emoji-gen/ecode-py"
+repository = "https://github.com/emoji-gen/ecode-py"
 classifiers = [
     "Development Status :: 4 - Beta",
     "License :: OSI Approved :: MIT License",
@@ -25,6 +27,9 @@ pytest-cov = "^2.8.1"
 pytest-pycodestyle = "^2.0.0"
 pytest-pythonpath = "^0.7.3"
 mypy = "^0.761"
+
+[tool.poetry.urls]
+"Issue tracker" = "https://github.com/emoji-gen/ecode-py/issues"
 
 [build-system]
 requires = ["poetry>=0.12"]
