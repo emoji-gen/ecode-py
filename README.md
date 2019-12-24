@@ -49,25 +49,28 @@ print(ecode.text) #=> 'ab\nc'
 ```
 
 ## Development
+You should install [Poetry](https://python-poetry.org/) first to develop.
+
+```shell script
+$ pip install poetry
+```
+
 ### Install requirements
 
 ```shell script
-$ python -m venv venv
-$ . venv/bin/activate
-$ pip install -r requirements-dev.txt
+$ poetry install
 ```
 
 ### Upgrade requirements
 
 ```shell script
-$ ./scripts/upgrade-requirements-dev.sh
+$ poetry update
 ```
 
 ### Test
 
 ```shell script
-$ . venv/bin/activate
-$ pytest
+$ poetry run pytest
 ```
 
 ### Publish
