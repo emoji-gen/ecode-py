@@ -75,7 +75,8 @@ $ poetry update
 ### Test
 
 ```shell script
-$ poetry run pytest
+$ poetry run pytest        # Test
+$ poetry run mypy -p ecode # Type checking
 ```
 
 ### Publish
