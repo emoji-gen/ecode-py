@@ -7,13 +7,12 @@ from .ecode import Ecode, EcodeFlag
 
 
 class EcodeEncoder:
-    @classmethod
-    def encode(cls, ecode: Ecode):
+    def encode(self, ecode: Ecode):
         encoded_text = ecode.text.encode('utf-8')
         buff = bytearray(Ecode.HEADER_LENGTH + len(encoded_text))
 
         buff[0] |= ecode.locale.value & 0x0f
-        buff[1] |= cls._encode_flags(ecode.flags) << 2 & 0b1111_1100
+        buff[1] |= self._encode_flags(ecode.flags) << 2 & 0b1111_1100
         buff[1] |= ecode.align.value & 0x0000_0011
         buff[2] |= ecode.size.value << 4 & 0xf0
         buff[2] |= ecode.fmt.value & 0x0f
@@ -35,8 +34,7 @@ class EcodeEncoder:
             .decode('utf-8') \
             .replace('=', '')
 
-    @classmethod
-    def _encode_flags(cls, flags: AbstractSet[EcodeFlag]):
+    def _encode_flags(self, flags: AbstractSet[EcodeFlag]):
         value = 0x00
         for flag in flags:
             value |= 1 << flag.value

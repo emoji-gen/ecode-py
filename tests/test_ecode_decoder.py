@@ -15,7 +15,7 @@ from ecode import (
 
 
 def test_decode():
-    ecode = EcodeDecoder.decode('BA0hzxI0VniavN7wYWIKYw')
+    ecode = EcodeDecoder().decode('BA0hzxI0VniavN7wYWIKYw')
     assert ecode.version == 1
     assert ecode.locale == EcodeLocale.EN
     assert ecode.flags == frozenset([EcodeFlag.SIZE_FIXED, EcodeFlag.STRETCH])
@@ -50,7 +50,7 @@ def test_decode_illegal_locale():
     code = urlsafe_b64encode(code_bytes).decode('utf-8')
 
     with pytest.raises(ValueError, match='EcodeLocale'):
-        EcodeDecoder.decode(code)
+        EcodeDecoder().decode(code)
 
 
 def test_decode_illegal_align():
@@ -75,7 +75,7 @@ def test_decode_illegal_align():
     code = urlsafe_b64encode(code_bytes).decode('utf-8')
 
     with pytest.raises(ValueError, match='EcodeAlign'):
-        EcodeDecoder.decode(code)
+        EcodeDecoder().decode(code)
 
 
 def test_decode_illegal_size():
@@ -100,7 +100,7 @@ def test_decode_illegal_size():
     code = urlsafe_b64encode(code_bytes).decode('utf-8')
 
     with pytest.raises(ValueError, match='EcodeSize'):
-        EcodeDecoder.decode(code)
+        EcodeDecoder().decode(code)
 
 
 def test_decode_illegal_fmt():
@@ -125,4 +125,4 @@ def test_decode_illegal_fmt():
     code = urlsafe_b64encode(code_bytes).decode('utf-8')
 
     with pytest.raises(ValueError, match='EcodeFmt'):
-        EcodeDecoder.decode(code)
+        EcodeDecoder().decode(code)

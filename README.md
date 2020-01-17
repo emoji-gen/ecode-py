@@ -40,7 +40,7 @@ ecode = Ecode(
 )
 
 
-code = EcodeEncoder.encode(ecode)
+code = EcodeEncoder().encode(ecode)
 print(code) #=> 'BA0hzxI0VniavN7wYWIKYw'
 ```
 
@@ -49,7 +49,7 @@ print(code) #=> 'BA0hzxI0VniavN7wYWIKYw'
 ```python
 from ecode import EcodeDecoder
 
-ecode = EcodeDecoder.decode('BA0hzxI0VniavN7wYWIKYw')
+ecode = EcodeDecoder().decode('BA0hzxI0VniavN7wYWIKYw')
 print(ecode.text) #=> 'ab\nc'
 ```
 
