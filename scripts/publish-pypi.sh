@@ -6,4 +6,4 @@ rm -rf dist/
 
 poetry install
 poetry build -f wheel
-poetry run twine upload --repository testpypi dist/*
+poetry run twine upload --repository pypi dist/*
