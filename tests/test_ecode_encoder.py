@@ -17,7 +17,7 @@ def test_encode():
     ecode = Ecode(
         locale=EcodeLocale.EN,
         flags=frozenset([EcodeFlag.SIZE_FIXED, EcodeFlag.STRETCH]),
-        align=EcodeAlign.CENTER,
+        align=EcodeAlign.RIGHT,
         size=EcodeSize.XHDPI,
         fmt=EcodeFmt.WEBP,
         font_id=0b1100_1111,
@@ -31,7 +31,7 @@ def test_encode():
     actual = base64.urlsafe_b64decode(code + '=' * (len(code) % 4))
     expected = bytes([
         0b0000_0100,  # Version:4, Locale:4
-        0b0000_1101,  # Flags:6, Align:2
+        0b0000_1110,  # Flags:6, Align:2
         0b0010_0001,  # Size:4, Fmt:4
         0b1100_1111,  # FontId:8
         0x12,  # ForegroundColor_R:8

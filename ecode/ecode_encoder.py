@@ -13,7 +13,7 @@ class EcodeEncoder:
 
         buff[0] |= ecode.locale.value & 0x0f
         buff[1] |= self._encode_flags(ecode.flags) << 2 & 0b1111_1100
-        buff[1] |= ecode.align.value & 0x0000_0011
+        buff[1] |= ecode.align.value & 0b0000_0011
         buff[2] |= ecode.size.value << 4 & 0xf0
         buff[2] |= ecode.fmt.value & 0x0f
         buff[3] |= ecode.font_id & 0xff
