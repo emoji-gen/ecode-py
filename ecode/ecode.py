@@ -159,16 +159,60 @@ class Ecode:
         if not text:
             raise ValueError('empty string is not allowed')
 
-        self.locale = locale
-        self.flags = flags
-        self.align = align
-        self.size = size
-        self.fmt = fmt
-        self.font_id = font_id
-        self.foreground_color = foreground_color
-        self.background_color = background_color
-        self.text = text
+        self._locale = locale
+        self._flags = flags
+        self._align = align
+        self._size = size
+        self._fmt = fmt
+        self._font_id = font_id
+        self._foreground_color = foreground_color
+        self._background_color = background_color
+        self._text = text
 
     @property
     def version(self) -> int:
         return 1
+
+    @property
+    def locale(self) -> EcodeLocale:
+        return self._locale
+
+    @property
+    def flags(self) -> AbstractSet[EcodeFlag]:
+        return self._flags
+
+    @property
+    def align(self) -> EcodeAlign:
+        return self._align
+
+    @property
+    def size(self) -> EcodeSize:
+        return self._size
+
+    @property
+    def fmt(self) -> EcodeFmt:
+        return self._fmt
+
+    @property
+    def font_id(self) -> int:
+        return self._font_id
+
+    @property
+    def foreground_color(self) -> int:
+        return self._foreground_color
+
+    @property
+    def foreground_color_hex(self) -> str:
+        return '{:08X}'.format(self._foreground_color)
+
+    @property
+    def background_color(self) -> int:
+        return self._background_color
+
+    @property
+    def background_color_hex(self) -> str:
+        return '{:08X}'.format(self._background_color)
+
+    @property
+    def text(self):
+        return self._text

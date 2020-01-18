@@ -37,23 +37,53 @@ def test_ecode_illegal_size():
 
 
 # noinspection PyTypeChecker
-def test_ecode_illegal_fmt():
+def test_init_fmt_illegal_value():
     with pytest.raises(ValueError, match='`fmt` must be an instance of `EcodeFmt`, but it is \'fmt\''):
         Ecode(text='ab\nc', fmt='fmt')
 
 
-def test_ecode_illegal_foreground_color():
+def test_init_foreground_color_default_value():
+    ecode = Ecode(text='ab\nc')
+    assert ecode.foreground_color == 0x000000FF
+
+
+def test_init_foreground_color_illegal_value():
     with pytest.raises(ValueError,
                        match='`foreground_color` must be between 0 and 0xFFFFFFFF, but it is ' + repr(0xFFFFFFFF + 1)):
         Ecode(text='ab\nc', foreground_color=0xFFFFFFFF + 1)
 
 
-def test_ecode_illegal_background_color():
+def test_init_background_color_default_value():
+    ecode = Ecode(text='ab\nc')
+    assert ecode.background_color == 0xFFFFFFFF
+
+
+def test_init_background_color_illegal_value():
     with pytest.raises(ValueError,
                        match='`background_color` must be between 0 and 0xFFFFFFFF, but it is ' + repr(0xFFFFFFFF + 1)):
         Ecode(text='ab\nc', background_color=0xFFFFFFFF + 1)
 
 
-def test_encode_empty_text():
+def test_init_empty_text():
     with pytest.raises(ValueError, match='empty string is not allowed'):
         Ecode(text='')
+
+
+def test_foreground_color():
+    ecode = Ecode(text='ab\nc', foreground_color=0x123456AB)
+    assert ecode.foreground_color == 0x123456AB
+
+
+def test_foreground_color_hex():
+    ecode = Ecode(text='ab\nc', foreground_color=0x123456AB)
+    assert ecode.foreground_color_hex == '123456AB'
+
+
+def test_background_color():
+    ecode = Ecode(text='ab\nc', background_color=0x123456AB)
+    assert ecode.background_color == 0x123456AB
+
+
+def test_background_color_hex():
+    ecode = Ecode(text='ab\nc', background_color=0x123456AB)
+    assert ecode.background_color_hex == '123456AB'
