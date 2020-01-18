@@ -79,6 +79,30 @@ class EcodeSize(IntEnum):
     def code(self) -> str:
         return self.name.lower()
 
+    @property
+    def width(self) -> int:
+        if self == EcodeSize.MDPI:
+            return 128  # x1
+        elif self == EcodeSize.HDPI:
+            return 192  # x1.5
+        elif self == EcodeSize.XHDPI:
+            return 256  # x2
+        elif self == EcodeSize.XXHDPI:
+            return 384  # x3
+        raise NotImplementedError(f'Not supported enum member : {self}')
+
+    @property
+    def height(self) -> int:
+        if self == EcodeSize.MDPI:
+            return 128  # x1
+        elif self == EcodeSize.HDPI:
+            return 192  # x1.5
+        elif self == EcodeSize.XHDPI:
+            return 256  # x2
+        elif self == EcodeSize.XXHDPI:
+            return 384  # x3
+        raise NotImplementedError(f'Not supported enum member : {self}')
+
 
 class EcodeFmt(IntEnum):
     PNG = 0
