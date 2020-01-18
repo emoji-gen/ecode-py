@@ -16,7 +16,9 @@ def test_from_code_ko():
 def test_from_code_zh_hans():
     assert EcodeLocale.from_code('zh') == EcodeLocale.ZH_HANS
     assert EcodeLocale.from_code('zh-hans') == EcodeLocale.ZH_HANS
+    assert EcodeLocale.from_code('zh-Hans') == EcodeLocale.ZH_HANS
     assert EcodeLocale.from_code('zh_hans') == EcodeLocale.ZH_HANS
+    assert EcodeLocale.from_code('zh_Hans') == EcodeLocale.ZH_HANS
 
 
 def test_from_code_zh_hant():
