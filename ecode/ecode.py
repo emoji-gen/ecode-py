@@ -214,5 +214,5 @@ class Ecode:
         return '{:08X}'.format(self._background_color)
 
     @property
-    def text(self):
+    def text(self) -> str:
         return self._text
