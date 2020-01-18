@@ -17,6 +17,9 @@ def test_code():
 
 
 def test_width():
+    for size in EcodeSize:
+        assert isinstance(size.width, int)
+
     assert EcodeSize.MDPI.width == 128
     assert EcodeSize.HDPI.width == 192
     assert EcodeSize.XHDPI.width == 256
@@ -24,6 +27,9 @@ def test_width():
 
 
 def test_height():
+    for size in EcodeSize:
+        assert isinstance(size.height, int)
+
     assert EcodeSize.MDPI.height == 128
     assert EcodeSize.HDPI.height == 192
     assert EcodeSize.XHDPI.height == 256
