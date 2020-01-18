@@ -11,4 +11,4 @@ from .ecode import (
 from .ecode_decoder import EcodeDecoder
 from .ecode_encoder import EcodeEncoder
 
-__version__ = '0.1.4'
+__version__ = '0.1.5'
