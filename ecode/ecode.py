@@ -178,7 +178,7 @@ class Ecode:
     def locale(self) -> EcodeLocale:
         return self._locale
 
-    def with_locale(self, locale):
+    def with_locale(self, locale) -> 'Ecode':
         obj = copy(self)
         obj._locale = locale
         return obj
