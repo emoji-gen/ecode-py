@@ -2,7 +2,10 @@
 
 import pytest
 
-from ecode import Ecode
+from ecode import (
+    Ecode,
+    EcodeLocale,
+)
 
 
 # noinspection PyTypeChecker
@@ -68,6 +71,12 @@ def test_init_empty_text():
     with pytest.raises(ValueError, match='empty string is not allowed'):
         Ecode(text='')
 
+def test_with_locale():
+    ecode1 = Ecode(locale=EcodeLocale.JA, text='ab\nc')
+    ecode2 = ecode1.with_locale(EcodeLocale.EN)
+    assert ecode1 != ecode2
+    assert ecode1.locale == EcodeLocale.JA
+    assert ecode2.locale == EcodeLocale.EN
 
 def test_foreground_color():
     ecode = Ecode(text='ab\nc', foreground_color=0x123456AB)

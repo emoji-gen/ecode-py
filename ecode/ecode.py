@@ -2,6 +2,7 @@
 
 import enum
 from collections.abc import Set
+from copy import copy
 from enum import IntEnum
 from typing import AbstractSet
 
@@ -176,6 +177,11 @@ class Ecode:
     @property
     def locale(self) -> EcodeLocale:
         return self._locale
+
+    def with_locale(self, locale):
+        obj = copy(self)
+        obj._locale = locale
+        return obj
 
     @property
     def flags(self) -> AbstractSet[EcodeFlag]:
